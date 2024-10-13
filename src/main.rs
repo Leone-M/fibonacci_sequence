@@ -1,6 +1,15 @@
+use std::io;
+
 fn main() {
-    let y: i32 = nolan(5);
+
+    let mut y: String = String::new();
+    io::stdin().read_line(&mut y).expect("Failed to read integer");
     println!("{y}");
+
+    let y: i32 = y.trim().parse().expect("Please type a number");
+
+    let x: i32 = nolan(y);
+    println!("{y} number of fibonacci sequence is: {x}")
 }
 
 fn nolan(n: i32) -> i32{
